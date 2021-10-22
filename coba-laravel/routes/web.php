@@ -29,6 +29,7 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about', [
         "title" => "About",
+        "active" => "about",
         "name" => "Adji Pratama",
         "email" => "adjipratama28@gmail.com",
         "image" => "adji.jpeg"
@@ -59,6 +60,7 @@ Route::get('/categories/{category:slug}', function(Category $category) {
 Route::get('/authors/{author:username}', function(User $author) {
     return view('posts', [
         'title' => "Post By Author : $author->name",
+        'active' => 'author',
         'posts' => $author->posts->load('category', 'author'),
     ]);
 });
